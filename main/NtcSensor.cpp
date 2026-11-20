@@ -8,7 +8,8 @@ void NtcSensor::begin()
     pinMode(_pino, INPUT);
 }
 
-float NtcSensor::getResist() {
+float NtcSensor::getResist() 
+{
     // i = U/R
     // i = U2/R2
     
