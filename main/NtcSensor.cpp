@@ -8,6 +8,17 @@ void NtcSensor::begin()
     pinMode(_pino, INPUT);
 }
 
+int NtcSensor::lerMediaNTC()
+{
+    long acc = 0;
+    for(int i = 0; i < 19; i++)
+    {
+        acc += analogRead(_pino);
+        delay(1);
+    }
+    return acc / 20;
+}
+
 float NtcSensor::getResist() 
 {
     // i = U/R
@@ -24,7 +35,7 @@ float NtcSensor::getResist()
     //R1 = R2(adc_max/leitura - 1)
 
 
-    int leitura = analogRead(_pino);
+    int leitura = lerMediaNTC();
     if (leitura <= 0) leitura = 1;            
     return _rFixo * (float(_adc_max) / leitura - 1.0);
 }

@@ -13,4 +13,6 @@ private:
     uint8_t _pino;
     uint16_t _adc_max;
     float _rFixo, _r0, _t0, _beta;
+
+    int lerMediaNTC();
 };
